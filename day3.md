@@ -48,5 +48,11 @@ mncss x=maximum$map sum[y|y<-subsequences x,not$isInfixOf y x]
 
 ### (75) Julia by Ferrolho
 ```julia
-mncss(x)=maximum(sum(x[s]) for s=subsets(1:length(x)) if any(≠(1),diff(s)))
+mncss(x)=maximum(sum(x[s]) for s=subsets(1:length(x)) if (≠(1),diff(s)))
+```
+
+### (125) Python by António
+```python
+s=lambda l:max(l)if max(l)<0else sum([max(x,0)for x in l])
+mncss=lambda l:max([s(l[:i])+s(l[i+1:])for i in range(1,len(l)-1)])
 ```
